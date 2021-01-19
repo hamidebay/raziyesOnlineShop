@@ -40,22 +40,20 @@ let catalog = [
 
 printCatalog();
 
-document.getElementById("0").onclick = function () {
-  getClicked(0);
-};
-document.getElementById("1").onclick = function () {
-  getClicked(1);
-};
-document.getElementById("2").onclick = function () {
-  getClicked(2);
-};
-document.getElementById("3").onclick = function () {
-  getClicked(3);
-};
-document.getElementById("4").onclick = function () {
-  getClicked(4);
-};
- document.getElementById("100").onclick = function () {
+for(let index =0; index < catalog.length; index++){
+  document.getElementById(index).onclick = function () {
+    getClicked(index);
+  };
+}
+
+for(let index =0; index < basketArray.length; index++){
+  let productId = 100+index;
+  document.querySelector("#productId").onclick = function () {
+    console.log("test");
+    deleteItem((productId));
+  };
+}
+/*  document.getElementById("100").onclick = function () {
   alert("test");
   deleteItem(0);
 }; 
@@ -72,4 +70,4 @@ document.getElementById("103").onclick = function () {
 };
 document.getElementById("104").onclick = function () {
   deleteItem(4);
-};
+}; */
