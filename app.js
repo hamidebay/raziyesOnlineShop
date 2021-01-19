@@ -48,9 +48,10 @@ for(let index =0; index < catalog.length; index++){
 
 for(let index =0; index < basketArray.length; index++){
   let productId = 100+index;
-  document.querySelector("#productId").onclick = function () {
+  document.getElementById(productId).onclick = function () {
+    alert("test");
     console.log("test");
-    deleteItem((productId));
+    //deleteItem((productId));
   };
 }
 /*  document.getElementById("100").onclick = function () {
