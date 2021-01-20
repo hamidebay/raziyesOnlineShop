@@ -9,8 +9,16 @@ function printCatalog() {
       dt = document.createElement("dt");
       dl.appendChild(dt);
       for (eigenschaft in m) {
-        dd = document.createElement("dd");
-        dd.innerHTML = m[eigenschaft];
+          if(m.picture == eigenschaft){
+              dd = document.createElement("img");  
+              dd.src=eigenschaft
+              
+          }
+          else{
+            dd = document.createElement("dd");
+            dd.innerHTML = m[eigenschaft];
+          }
+    
         dt.appendChild(dd);
       }
       let button;
@@ -28,6 +36,7 @@ function printBasket() {
 
   if (showBasket) {
     let lastValue = basketArray[basketArray.length - 1];
+    let dali=document.createElement("dl")
     dl = showBasket.appendChild(document.createElement("dl"));
     let dd, dt, eigenschaft;
     dt = document.createElement("dt");
@@ -43,8 +52,10 @@ function printBasket() {
     button.id = id++;
     button.className = "deleteBtn";
     dt.appendChild(button);
-  }
 }
+  
+}
+
 
 function calculateTotal(total, num) {
   return total + num;
@@ -58,8 +69,8 @@ function getClicked(pIndex) {
   document.getElementById("sum").innerHTML = prices.reduce(calculateTotal);
 }
 
-function deleteItem(pIndex) {
-  basketArray.splice(pIndex, 1);
+function deleteItem(id) {
+  //basketArray.splice(id, 1);
  
    
 }

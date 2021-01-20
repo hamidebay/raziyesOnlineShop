@@ -6,7 +6,7 @@ let catalog = [
     calori: 300,
     expireDate: "01.01.2022",
     price: 3.6,
-    picture: (myImage.src = "./images/aprikosen.jpg"),
+    picture: "./images/aprikosen.jpg",
   },
   {
     name: "Orangen",
@@ -43,17 +43,34 @@ printCatalog();
 for (let index = 0; index < catalog.length; index++) {
   document.getElementById(index).onclick = function () {
     getClicked(index);
-    for (let j = 0; j < basketArray.length; j++) {
-      let productId = 100 + j;
-      document.getElementById(productId).onclick = function () {
-        deleteItem(j);
-        document.getElementById("showroom-basket").innerHTML = "";
-        printBasket();
-      };
-    }
   };
 }
 
+/*
+  for (let j = 0; j < basketArray.length; j++) {
+    let productId = 100 + j;
+
+    document.getElementById(productId).onclick = function () {
+      deleteItem(1);
+      document.getElementById("showroom-basket").innerHTML = "";
+      printBasket();
+      
+    }} */
+ document.querySelector(".showroom").addEventListener("click", (event) => {
+  if (event.target.className == "deleteBtn") {
+    let productId = event.target.id;
+    event.target.parentElement.remove();
+    console.log(event.target);
+    document.getElementById("showroom-basket").innerHTML = "";
+    printBasket();
+    // deleteItem(productId);
+  }
+}); 
+
+   
+  //boxRow.getElementsByClassName("btn-danger")[0].addEventListener("click", removeItems)
+
+  
 /*
 document.getElementById("101").onclick = function () {
 
