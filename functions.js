@@ -59,9 +59,7 @@ function getClicked(pIndex) {
 }
 
 function deleteItem(pIndex) {
-    alert("test");
-    console.log("dennem");
   basketArray.splice(pIndex, 1);
-  
-  printBasket();
+ 
+   
 }

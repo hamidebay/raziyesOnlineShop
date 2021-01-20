@@ -40,27 +40,23 @@ let catalog = [
 
 printCatalog();
 
-for(let index =0; index < catalog.length; index++){
+for (let index = 0; index < catalog.length; index++) {
   document.getElementById(index).onclick = function () {
     getClicked(index);
+    for (let j = 0; j < basketArray.length; j++) {
+      let productId = 100 + j;
+      document.getElementById(productId).onclick = function () {
+        deleteItem(j);
+        document.getElementById("showroom-basket").innerHTML = "";
+        printBasket();
+      };
+    }
   };
 }
 
-for(let index =0; index < basketArray.length; index++){
-  let productId = 100+index;
-  document.getElementById(productId).onclick = function () {
-    alert("test");
-    console.log("test");
-    //deleteItem((productId));
-  };
-}
-/*  document.getElementById("100").onclick = function () {
-  alert("test");
-  deleteItem(0);
-}; 
+/*
 document.getElementById("101").onclick = function () {
-  console.log("test");
-  alert("test");
+
   deleteItem(1);
 };
 document.getElementById("102").onclick = function () {
