@@ -1,3 +1,12 @@
+//1. Katalog array olarak olusturulur.
+//2. Katalog dom da gösterilir.
+//3. Sepet alani olusturulur.
+//4. Sepet butonuno basilan ürünler sepet arrayine pushlanir.
+//5. Sepet arayindeki ürünler domda gösterilir.
+//5. Sepete eklenen ürünlerin fiyati toplam olarak altta gösterilir.
+//6. Cikarma butonuna basinca sepetteki eleman cikartilir.
+//7. Sepetten eleman cikinca ya da eklenince toplam fiyat güncellenir.
+
 let myImage = new Image();
 let basketArray = [];
 let catalog = [
