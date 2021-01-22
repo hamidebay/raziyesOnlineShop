@@ -25,7 +25,7 @@ dt {
   display: flex;
 }
 dd {
-  width: 50px;
+  width: 85px;
   height: 40px;
 }
 button {
@@ -39,7 +39,7 @@ button {
 }
 .deleteBtn {
   color: red;
-  margin-left: 30px;
+  margin-left: 85px;
 }
 .plusBtn {
   color: red;
