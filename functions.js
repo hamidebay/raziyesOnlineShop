@@ -9,16 +9,13 @@ function printCatalog() {
       dt = document.createElement("dt");
       dl.appendChild(dt);
       for (eigenschaft in m) {
-          if(m.picture == eigenschaft){
-              dd = document.createElement("img");  
-              dd.src=eigenschaft
-              
-          }
-          else{
-            dd = document.createElement("dd");
-            dd.innerHTML = m[eigenschaft];
-          }
-    
+        if (m.picture == eigenschaft) {
+          dd = document.createElement("img");
+          dd.src = eigenschaft;
+        } else {
+          dd = document.createElement("dd");
+          dd.innerHTML = m[eigenschaft];
+        }
         dt.appendChild(dd);
       }
       let button;
@@ -29,33 +26,32 @@ function printCatalog() {
     });
   }
 }
+
+let count = 1;
 let id = 100;
-function printBasket() {
+function printBasket(pElement, pIndex) {
   let showBasket = document.getElementById("showroom-basket"),
     dl;
 
   if (showBasket) {
-    let lastValue = basketArray[basketArray.length - 1];
-    let dali=document.createElement("dl")
     dl = showBasket.appendChild(document.createElement("dl"));
     let dd, dt, eigenschaft;
     dt = document.createElement("dt");
     dl.appendChild(dt);
-    for (eigenschaft in lastValue) {
+    for (eigenschaft in pElement) {
       dd = document.createElement("dd");
-      dd.innerHTML = lastValue[eigenschaft];
+      dd.innerHTML = pElement[eigenschaft];
       dt.appendChild(dd);
     }
+
     let button;
     button = document.createElement("button");
     button.innerHTML = "X";
-    button.id = id++;
+    button.id = pIndex;
     button.className = "deleteBtn";
     dt.appendChild(button);
+  }
 }
-  
-}
-
 
 function calculateTotal(total, num) {
   return total + num;
@@ -63,14 +59,19 @@ function calculateTotal(total, num) {
 
 function getClicked(pIndex) {
   basketArray.push(catalog[pIndex]);
-  printBasket();
-  let prices = [];
-  basketArray.map((pPrice) => prices.push(pPrice.price));
-  document.getElementById("sum").innerHTML = prices.reduce(calculateTotal);
+  document.getElementById("showroom-basket").innerHTML = "";
+  for (let i = 0; i < basketArray.length; i++) {
+    printBasket(basketArray[i], i);
+  }
+  updateCalculating();
 }
 
 function deleteItem(id) {
-  //basketArray.splice(id, 1);
- 
-   
+  basketArray.splice(id, 1);
+}
+
+function updateCalculating() {
+  let prices = [];
+  basketArray.map((pPrice) => prices.push(pPrice.price));
+  document.getElementById("sum").innerHTML = prices.reduce(calculateTotal);
 }

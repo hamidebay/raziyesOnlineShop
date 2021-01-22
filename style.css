@@ -14,10 +14,53 @@ th {
   margin-top: 50px;
 }
 
-tr{border: solid black 3px};
-td{border: solid gray 1 px; background-color: grey;}
-dt{display: flex}
-dd{width: 85px; height: 40px;}
-button{margin-left: 60px; height: 25px;}
-#showroom-basket{width: 650px; height: 300px; background-color: lightgrey;}
-.deleteBtn{color: red;}
+tr {
+  border: solid black 3px;
+}
+td {
+  border: solid gray 1 px;
+  background-color: grey;
+}
+dt {
+  display: flex;
+}
+dd {
+  width: 50px;
+  height: 40px;
+}
+button {
+  margin-left: 60px;
+  height: 25px;
+}
+#showroom-basket {
+  width: 650px;
+  height: 300px;
+  background-color: lightgrey;
+}
+.deleteBtn {
+  color: red;
+  margin-left: 30px;
+}
+.plusBtn {
+  color: red;
+  width: 30px;
+  height: 15px;
+  border-radius: 50%;
+  border: red solid 1px;
+  font-weight: bolder;
+}
+.minusBtn {
+  color: red;
+  width: 30px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 150px;
+  border: red solid 1px;
+  font-weight: bold;
+  font-display: center;
+}
+
+.productCount{
+  padding-right: 5px;
+  padding-left: 5px;
+}

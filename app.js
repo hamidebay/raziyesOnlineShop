@@ -6,7 +6,7 @@ let catalog = [
     calori: 300,
     expireDate: "01.01.2022",
     price: 3.6,
-    picture: "./images/aprikosen.jpg",
+    image: "aprikosen.jpg",
   },
   {
     name: "Orangen",
@@ -46,42 +46,25 @@ for (let index = 0; index < catalog.length; index++) {
   };
 }
 
-/*
-  for (let j = 0; j < basketArray.length; j++) {
-    let productId = 100 + j;
-
-    document.getElementById(productId).onclick = function () {
-      deleteItem(1);
-      document.getElementById("showroom-basket").innerHTML = "";
-      printBasket();
-      
-    }} */
- document.querySelector(".showroom").addEventListener("click", (event) => {
+document.querySelector(".showroom").addEventListener("click", (event) => {
   if (event.target.className == "deleteBtn") {
     let productId = event.target.id;
-    event.target.parentElement.remove();
-    console.log(event.target);
+    basketArray.splice(productId, 1);
+    console.log(basketArray);
     document.getElementById("showroom-basket").innerHTML = "";
-    printBasket();
-    // deleteItem(productId);
+
+    for (let i = 0; i < basketArray.length; i++) {
+      printBasket(basketArray[i], i);
+    }
+    updateCalculating();
   }
-}); 
+});
 
-   
-  //boxRow.getElementsByClassName("btn-danger")[0].addEventListener("click", removeItems)
-
-  
-/*
-document.getElementById("101").onclick = function () {
-
-  deleteItem(1);
-};
-document.getElementById("102").onclick = function () {
-  deleteItem(2);
-};
-document.getElementById("103").onclick = function () {
-  deleteItem(3);
-};
-document.getElementById("104").onclick = function () {
-  deleteItem(4);
-}; */
+function buildImage(url) {
+  var img = new Image();
+  img.onerror = function () {
+    console.log("could not load image on URL " + url);
+  };
+  img.src = url;
+  return img;
+}
