@@ -4,7 +4,7 @@ function printCatalog() {
   let id = 0;
   if (showCatalog) {
     dl = showCatalog.appendChild(document.createElement("dl"));
-    catalog.forEach(function (m, i) {
+    catalog.map(function (m, i) {
       let dd, dt, eigenschaft;
       dt = document.createElement("dt");
       dl.appendChild(dt);
