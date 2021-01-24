@@ -15,7 +15,7 @@ let catalog = [
     calori: 300,
     expireDate: "01.01.2022",
     price: 3.6,
-    image: "aprikosen.jpg",
+    picture: "./images/aprikosen.jpg",
   },
   {
     name: "Orangen",

@@ -4,14 +4,14 @@ function printCatalog() {
   let id = 0;
   if (showCatalog) {
     dl = showCatalog.appendChild(document.createElement("dl"));
-    catalog.map(function (m, i) {
+    catalog.forEach(function (m, i) {
       let dd, dt, eigenschaft;
       dt = document.createElement("dt");
       dl.appendChild(dt);
       for (eigenschaft in m) {
-        if (m.picture == eigenschaft) {
+        if ("picture" == eigenschaft) {
           dd = document.createElement("img");
-          dd.src = eigenschaft;
+          dd.src = m.picture;
         } else {
           dd = document.createElement("dd");
           dd.innerHTML = m[eigenschaft];
@@ -38,10 +38,15 @@ function printBasket(pElement, pIndex) {
     let dd, dt, eigenschaft;
     dt = document.createElement("dt");
     dl.appendChild(dt);
-    for (eigenschaft in pElement) {
-      dd = document.createElement("dd");
-      dd.innerHTML = pElement[eigenschaft];
-      dt.appendChild(dd);
+    if ("picture" == eigenschaft) {
+      dd = document.createElement("img");
+      dd.src = m.picture;
+    } else {
+      for (eigenschaft in pElement) {
+        dd = document.createElement("dd");
+        dd.innerHTML = pElement[eigenschaft];
+        dt.appendChild(dd);
+      }
     }
 
     let button;
